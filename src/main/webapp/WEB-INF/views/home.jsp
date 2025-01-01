@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 								<span>사용자 메뉴</span>
 								<ul class="sub-menu">
 									<li><a href="/Logout">로그아웃</a></li>
-									<li><a href="/profile">내 정보</a></li>
+									<li><a href="/MyPage">내 정보</a></li>
 								</ul>
 							</c:when>
 							<c:otherwise>
@@ -76,14 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
 					<p>장소: 서울 공연장</p>
 					<a href="javascript:void(0);"
 						onclick="handleReservation('/reservation?artist=A')"
-						class="btn-secondary">예매하기</a>
-				</div>
-				<div class="concert-item">
-					<h3>Artist B</h3>
-					<p>날짜: 2024-02-20</p>
-					<p>장소: 부산 공연장</p>
-					<a href="javascript:void(0);"
-						onclick="handleReservation('/reservation?artist=B')"
 						class="btn-secondary">예매하기</a>
 				</div>
 			</div>

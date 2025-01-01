@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.SeatMapper">
+	<!-- 좌석 삽입 -->
+	<insert id="insertSeat" parameterType="com.project.dto.SeatDTO">
+		INSERT INTO seats (status)
+		VALUES (#{status})
+	</insert>
+
+	<select id="getReservedSeats" parameterType="map"
+		resultType="int">
+		SELECT seat_id
+		FROM reservation
+		WHERE date = #{date} AND time = #{time}
+	</select>
+</mapper>

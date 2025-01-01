@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.ReservationMapper">
+
+    <!-- 예약 삽입 -->
+    <insert id="insertReservation" parameterType="com.project.dto.ReservationDTO">
+        INSERT INTO reservation (user_name, seat_id, date, time)
+        VALUES (#{userName}, #{seatId}, #{date}, #{time})
+    </insert>
+
+    <!-- 특정 날짜와 시간에 예약된 좌석 조회 -->
+    <select id="getReservedSeats" parameterType="map" resultType="int">
+        SELECT seat_id 
+        FROM reservation 
+        WHERE date = #{date} AND time = #{time}
+    </select>
+
+    <!-- 좌석 상태 업데이트 -->
+    <update id="updateSeatStatus" parameterType="map">
+        UPDATE seats 
+        SET status = #{status} 
+        WHERE id = #{seatId}
+    </update>
+
+    <!-- 특정 좌석이 예약 가능한지 확인 -->
+    <select id="checkSeatAvailability" parameterType="int" resultType="boolean">
+        SELECT COUNT(*) > 0 
+        FROM seats 
+        WHERE id = #{seatId} AND status = 'available'
+    </select>
+
+    <!-- 예약 가능한 좌석 목록 조회 (날짜 및 시간 기준) -->
+    <select id="getAvailableSeats" parameterType="map" resultType="int">
+        SELECT id 
+        FROM seats 
+        WHERE id NOT IN (
+            SELECT seat_id 
+            FROM reservation 
+            WHERE date = #{date} AND time = #{time}
+        ) AND status = 'available'
+    </select>
+
+</mapper>

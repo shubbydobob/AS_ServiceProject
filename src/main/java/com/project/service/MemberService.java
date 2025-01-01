@@ -19,7 +19,7 @@ public class MemberService {
 
 	public boolean DoLogin(String userId, String password) {
 		// Fetch the user from the database by userId
-		MemberDTO memberDTO = memberMapper.getUsers(userId);
+		MemberDTO memberDTO = memberMapper.findUserById(userId);
 
 		// If the user exists and the password matches
 		if (memberDTO != null && memberDTO.getPassword().equals(password)) {

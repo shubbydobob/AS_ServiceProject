@@ -4,7 +4,7 @@
 <mapper namespace="com.project.mapper.MemberMapper">
 
     <!-- SQL Statements -->
-    <select id="getUsers" resultType="com.project.dto.MemberDTO">
+    <select id="findUserById" resultType="com.project.dto.MemberDTO">
         SELECT * FROM member WHERE userId = #{userId}
     </select>
 

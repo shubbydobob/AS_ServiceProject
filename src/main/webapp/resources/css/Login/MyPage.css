@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* 마이페이지 전체 스타일 */
+.mypage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7fc;
+}
+
+.mypage-card {
+    width: 350px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.mypage-card h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.info {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    margin-bottom: 10px;
+}
+
+.info-item label {
+    font-weight: bold;
+    color: #555;
+}
+
+.info-item p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+button.edit-button, a.logout-button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+a.logout-button {
+    background-color: #f44336;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+button.edit-button:hover, a.logout-button:hover {
+    opacity: 0.8;
+}
